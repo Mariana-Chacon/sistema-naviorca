@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 18px;
+}
+
+.user-cart  {
+    margin-left: 500px;
+    color: #004359;
+}
+
+/*********** cards del admi dasboard**********/
+.card{
+  background-color: #004359;
+  padding:20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 8px 5px 5px #0000003b;
+  height: 200px;
+}
+
+/************************** Estilos del menu lateral - sidebar ***********************************/
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - esto cambia con js*/
+  position: fixed; /* Se queda en el mismo lugar */
+  z-index: 1; /* Se queda arriba */
+  top: 0;
+  left: 0;
+  background-color: #004359; /* Fondo azul*/
+  overflow-x: hidden; /* Desactiva el desplazamiento horizontal */
+  padding-top: 60px; /* Coloca el contenido a 60px de la parte superior*/
+  transition: 0.5s; /*Efecto de transición de 0,5 segundos para deslizar en la barra lateral*/
+}
+    
+/* Enlances del sidebar */
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+    
+.sidebar .side-header{
+  margin-left: 30px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+/* Al pasar el ratón por encima de los enlaces de navegación, cambia su color */
+.sidebar a:hover {
+  background-color: #062a36ef;
+}
+    
+/* Posición y estilo del botón de cierre (esquina superior derecha) */
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 2px;
+  font-size: 34px;
+  padding: 20px;
+}
+    
+/* Botón utilizado para abrir la barra lateral */
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px 15px;
+  border: none;
+  color: #fff;
+  background-color:#004359;
+}
+    
+/* Estiliza el contenido de la página - Sirve para empujar el contenido de la página a la derecha cuando se abre la navegación lateral */
+#main {
+  transition: margin-left .5s; /* Efecto transicion*/
+  padding: 20px;
+}
+    
+/* En pantallas más pequeñas, donde la altura es inferior a 450px, cambia el estilo del sidenav (menos relleno y un tamaño de fuente más pequeño) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/************************** Estilos de las tablas *******************************/
+ 
+table {
+  width: 750px; 
+	border-collapse: collapse; 
+	margin:50px auto;
+}
+ 
+td,
+th {
+  padding: 10px 16px;
+  text-align: center;
+	border: 1px solid #ccc; 
+	font-size: 18px;
+}
+
+th {
+  background-color: #004359;
+  color: #fafafa;
+  font-family: 'Open Sans', Sans-serif;
+  font-weight: bold;
+}
+
+tr {
+  width: 100%;
+  background-color: #fafafa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+
+/******BOTON DE ALERTAS Y DE SALIDA******/
+.container-button{
+float:right;
+}
+.btn{
+  color: #000;  
+ 
+}
+
+.btn:hover {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  color: #000;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}  
+
+ 
+
+/************************ Inicio de sesión y registro ******************************/
+
+
+
+button {
+  background-color: #47a386;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 25px;
+}
+
+ 
