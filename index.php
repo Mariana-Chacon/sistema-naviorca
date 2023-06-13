@@ -2,7 +2,7 @@
         <?php
             include "./cabeceraadmin.php";
             include "./sidebar.php";
-            include "config/bd.php";
+            include "config/conexion.php";
         ?>
 
     <div id="main-content" class="container allContent-section py-4">
