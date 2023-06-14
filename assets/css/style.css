@@ -6,21 +6,51 @@
     font-size: 18px;
 }
 
+h2{
+  margin-left: 100px;
+  color: #004359;
+}
+
 .user-cart  {
     margin-left: 500px;
     color: #004359;
 }
 
 /*********** cards del admi dasboard**********/
-.card{
+
+/*.card{
   background-color: #004359;
   padding:20px;
   margin: 10px;
   border-radius: 10px;
   box-shadow: 8px 5px 5px #0000003b;
   height: 200px;
+}*/
+
+.card-deck{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  
+}
+.card-deck .cards{
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  
+  width:300px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+  align-items: center;
 }
 
+
+ 
 /************************** Estilos del menu lateral - sidebar ***********************************/
 .sidebar {
   height: 100%; /* 100% Full-height */
@@ -121,12 +151,9 @@ tr:nth-child(even) {
 }
 
 /******BOTON DE ALERTAS Y DE SALIDA******/
-.container-button{
-float:right;
-}
-.btn{
-  color: #000;  
  
+.btn{
+color: #000;
 }
 
 .btn:hover {
@@ -148,8 +175,13 @@ float:right;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }  
 
- 
-
+.btn-warning{
+  color: #000;  
+  float: right;
+  margin-right: 150px;
+  margin-bottom: 30px;
+  font-size: medium;
+}
 /************************ Inicio de sesión y registro ******************************/
 
 

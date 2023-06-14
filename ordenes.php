@@ -7,8 +7,7 @@ include "config/conexion.php"
 
 <br>
 <h2>Ordenes guardadas</h2>
-<a href="formato_orden.php"><button type="button" class="btn btn-warning">Nueva orden</button></a>
-
+<a href="formato_orden.php"><button type="button" class="btn-warning">Nueva orden</button></a>
 <table>
   <thead>
     <tr>
@@ -48,12 +47,11 @@ include "config/conexion.php"
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Orden de trabajo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-body">
       <form method="post" enctype="multipart/form-data">
     <div class="card-formulario">
       <div class="card-header">
@@ -74,7 +72,7 @@ include "config/conexion.php"
               ?>
             </select>
           </div>
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-5">
             <label for="txtPersonal">Personal responsable</label>
             <select class="form-control" name="txtPersonal" id="txtPersonal">
               <option>Selecciona una opcion</option>
@@ -104,11 +102,11 @@ include "config/conexion.php"
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="dateUno">Fecha de emision</label>
-            <input class="date form-control" name="dateUno" id="dateUno" type="text" placeholder="d/M/y" title="format: dd/MM/y" />
+            <input class="date form-control" name="dateUno" id="dateUno" type="text" placeholder="D/M/Y" title="format: dd/MM/y" />
           </div>
           <div class="form-group col-md-6">
             <label for="dateDos">Fecha de inicio</label>
-            <input class="date form-control" name="dateDos" id="dateDos" type="text" placeholder="d/M/y" title="format: dd/MM/y" />
+            <input class="date form-control" name="dateDos" id="dateDos" type="text" placeholder="D/M/Y" title="format: dd/MM/y" />
           </div>
         </div>
         <div class="form-group">
@@ -130,7 +128,6 @@ include "config/conexion.php"
                         
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Borrar</button>
 </td>
-                
             <?php
             }
             ?>
