@@ -1,12 +1,10 @@
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ab-datepicker@latest/css/datepicker.css" type="text/css" />
-<link rel="stylesheet" href="path/to/font-awesome5.min.css" type="text/css" />
 <!-----PHP----->
 <?php
 include "./cabeceraadmin.php";
 include "./sidebar.php";
 include "config/conexion.php"
 ?>
+
 <br>
 <h2>Ordenes guardadas</h2>
 <a href="formato_orden.php"><button type="button" class="btn btn-warning">Nueva orden</button></a>
@@ -44,7 +42,7 @@ include "config/conexion.php"
                     <td><?php echo $ordenesData['descripcion_asignacion']; ?></td>
                     <td>
                          <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Editar</button>
+<button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-id=<?=$ordenesData['orden_id']?> data-target="#exampleModal">Editar</button>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -161,3 +159,4 @@ include "config/conexion.php"
 <script type="text/javascript" src="path/to/bootstrap.min.js"></script>
 <script type="text/javascript" src="path/to/datepicker.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ab-datepicker@latest"></script>
+<script type="module" src="./assets/js/order/handleEditData.js"></script>
