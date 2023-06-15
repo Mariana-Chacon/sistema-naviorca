@@ -8,7 +8,7 @@ export const makeRequest = async (url, { body, params = {}, ...restParams} = {})
 
   const fetchData = await fetch(`api/${finalUrl}`, {
     ...restParams,
-    ...body && { body: JSON.stringify(body) }
+    ...body && { body: JSON.stringify(body), headers: { 'Content-Type': 'application/json' } }
   });
   const requestData = await fetchData.json();
 
