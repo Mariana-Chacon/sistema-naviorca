@@ -1,9 +1,8 @@
 <?php
 include "./cabeceraadmin.php";
 include "./sidebar.php";
-include "config/conexion.php"
+include "./config/conexion.php"
 ?>
-
 <div class="cards">
     <div class="card-items">
       <img src="assets/images/aramaya.jpeg" alt="grand canyon" class="img-embarcacion">
@@ -145,22 +144,16 @@ include "config/conexion.php"
             ?> 
 </div>
 <br>
- 
-
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 text-left">
-        <a href=""><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1"/>Generar reporte</button></a>	
+        <a href="fpdf/reporte_ordenes.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1"/>Generar reporte</button></a>	
 			</div>
 			<div class="col-sm-6 text-right">
       <a href=""><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1"/>Añadir equipo</button></a>	
 			</div>
 		</div>
 	</div>
- 
-
- 
-
     <table>
   <thead>
     <tr>

@@ -4,7 +4,7 @@
 <?php
 include "./cabeceraadmin.php";
 include "./sidebar.php";
-include "config/conexion.php";
+include "./config/conexion.php"
 ?>
 <!--- CODIGO QUE DESENCADENAS LAS ACCIONES DEL FORMULARIO QUE PERMITIRAN GUARDAR INFORMACION EN LA BASE DE DATOS--->
 

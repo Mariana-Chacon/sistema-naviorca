@@ -3,7 +3,7 @@
 <div class="sidebar" id="mySidebar">
 <div class="side-header">
     <img src="./assets/images/logo.png" width="120" height="120" alt="Logo"> 
-    <h5 style="margin-top:10px;">Hello, Admin</h5>
+    <h5 style="margin-top:10px;">Hola, Admin</h5>
 </div>
 
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>

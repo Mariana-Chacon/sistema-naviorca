@@ -1,7 +1,7 @@
 <?php
 include "./cabeceraadmin.php";
 include "./sidebar.php";
-include "config/conexion.php"
+include "./config/conexion.php"
 ?>
 <main class="table_personal">
     <section class="table__header">
