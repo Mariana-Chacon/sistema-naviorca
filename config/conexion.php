@@ -1,7 +1,7 @@
 <?php 
 $host="localhost";
 $bd="sistema_gestion";
-$usuario="luisfer";
+$usuario="root";
 $contrasenia="";
 
 try{
