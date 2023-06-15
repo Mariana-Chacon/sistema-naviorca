@@ -7,12 +7,13 @@
 </div>
 
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-<a href="./index.php" ><img width="20" height="20" src="https://img.icons8.com/fluency/48/home-page.png" alt="home-page"/> Dashboard</a>
-<a href="embarcaciones.php"  onclick="showCustomers()" ><img width="20" height="20" src="https://img.icons8.com/fluency/48/cargo-ship.png" alt="cargo-ship"/>Embarcaciones</a>
-<a href="mantenimiento"   onclick="showCategory()" ><img width="20" height="20" src="https://img.icons8.com/fluency/48/service.png" alt="service"/>Mantenimiento</a>
-<a href="ordenes.php"   onclick="showSizes()" ><img width="20" height="20" src="https://img.icons8.com/fluency/48/purchase-order.png" alt="purchase-order"/> Ordenes de trabajo</a>
-<a href="personal.php"   onclick="showProductSizes()" ><img width="20" height="20" src="https://img.icons8.com/fluency/48/000000/user-group-man-man.png" alt="user-group-man-man"/>Personal</a>    
-<a href="configuraciones"   onclick="showProductItems()" ><img width="20" height="20" src="https://img.icons8.com/fluency/48/settings.png" alt="settings"/>Configuraciones</a>
+<a href="./index.php" ><img width="25" height="25" src="https://img.icons8.com/color/25/home--v1.png" alt="home--v1"/> Dashboard</a>
+<a href="embarcaciones.php"  onclick="showCustomers()" ><img width="30" height="30" src="https://img.icons8.com/color/30/water-transportation.png" alt="water-transportation"/>Embarcaciones</a>
+<a href="mantenimiento"   onclick="showCategory()" ><img width="30" height="30" src="https://img.icons8.com/color/30/water-transportation.png" alt="water-transportation"/>Mantenimiento</a>
+<a href="ordenes.php"   onclick="showSizes()" ><img width="30" height="30" src="https://img.icons8.com/color/30/purchase-order.png" alt="purchase-order"/>Ordenes de trabajo</a>
+<a href="personal.php"   onclick="showProductSizes()" ><img width="30" height="30" src="https://img.icons8.com/color/30/id-verified.png" alt="id-verified"/>Personal</a>
+<a href="informes.php"   onclick="showProductSizes()" ><img width="30" height="30" src="https://img.icons8.com/color/30/graph-report.png" alt="graph-report"/>Informenes</a>    
+<a href="configuraciones"   onclick="showProductItems()" ><img width="30" height="30" src="https://img.icons8.com/color/30/settings--v1.png" alt="settings--v1"/>Configuraciones</a>
    <!---->
 </div>
  
