@@ -59,7 +59,10 @@ buttonSubmit.addEventListener('click', (event) => {
       id
     },
     body
-  });
+  })
+    .then(data => {
+      location.reload()
+    });
 })
 
 initFormData();
