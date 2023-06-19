@@ -14,7 +14,7 @@ if(!$id) {
 }
 
 try {
-  $sql = "DELETE FROM orden WHERE orden_id = '$id'";
+  $sql = "DELETE FROM personal WHERE personal_id = '$id'";
 
   $sentenciaSQL = $conexion->prepare($sql);
   $sentenciaSQL->execute();

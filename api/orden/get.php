@@ -14,10 +14,9 @@ if(!$id) {
 }
 
 try {
-  $sql = "SELECT * FROM orden WHERE orden_id = :id";
+  $sql = "SELECT * FROM orden WHERE orden_id = '$id'";
 
   $sentenciaSQL = $conexion->prepare($sql);
-  $sentenciaSQL->bindParam(":id", $id);
   $sentenciaSQL->execute();
 
   $ordenResult = $sentenciaSQL->fetch(PDO::FETCH_ASSOC);

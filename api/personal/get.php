@@ -1,7 +1,7 @@
 <?php
 include "../../config/conexion.php";
 
-if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
   echo "invalid method";
   return;
 }
@@ -14,14 +14,17 @@ if(!$id) {
 }
 
 try {
-  $sql = "DELETE FROM orden WHERE orden_id = '$id'";
+  $sql = "SELECT * FROM personal WHERE personal_id = '$id'";
 
   $sentenciaSQL = $conexion->prepare($sql);
+  $sentenciaSQL->bindParam(":id", $id);
   $sentenciaSQL->execute();
 
+  $personalResult = $sentenciaSQL->fetch(PDO::FETCH_ASSOC);
+
   header('Content-type: application/json');
-  echo json_encode(array(
-    'deleted' => true
+  echo json_encode($personalResult ? $personalResult : array(
+    'error' => 'No existe esta persona'
   ));
 } catch (Exception $ex) {
   header('Content-type: application/json');

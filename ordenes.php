@@ -23,7 +23,7 @@ include "./config/conexion.php"
   <tbody>
     <?php
     $sql = "SELECT orden.*, personal.nombre, equipos.modelo, tipo_equipo.nombre AS nombre_equipo from orden
-                           INNER JOIN personal ON orden.personal_id = personal.personal_id
+                           LEFT JOIN personal ON orden.personal_id = personal.personal_id
                            INNER JOIN equipos ON orden.equipo_id = equipos.equipo_id
                            INNER JOIN tipo_equipo ON equipos.tipo_equipo_id = tipo_equipo.id";
     $ordenes = $conexion->query($sql);
@@ -34,7 +34,7 @@ include "./config/conexion.php"
     ?>
       <tr>
         <td><?php echo $ordenesData['orden_id']; ?></td>
-        <td><?php echo $ordenesData['nombre']; ?></td>
+        <td><?php echo $ordenesData['nombre'] ? $ordenesData['nombre'] : 'Sin asignar'; ?></td>
         <td><?php echo $ordenesData['nombre_equipo'] . " - " . $ordenesData["modelo"]; ?></td>
         <td><?php echo $ordenesData['fecha_emision']; ?></td>
         <td><?php echo $ordenesData['fecha_inicio']; ?></td>
@@ -85,7 +85,7 @@ include "./config/conexion.php"
                 <div class="form-group">
                   <label for=<?= 'personal-' . $ordenesData['orden_id'] ?>>Personal responsable</label>
                   <select class="form-control" name="personal" id="personal">
-                    <option>Selecciona una opcion</option>
+                    <option value="NULL">Selecciona una opcion</option>
                   </select>
                 </div>
               </div>
