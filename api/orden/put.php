@@ -6,23 +6,30 @@ if ($_SERVER['REQUEST_METHOD'] !== 'PUT') {
   return;
 }
 
-$id = $_GET['id'];
+try {
+  $id = $_GET['id'];
 
-$body = json_decode(file_get_contents('php://input'));
+  $body = json_decode(file_get_contents('php://input'));
 
-$descripcion_asignacion = $body->descripcion_asignacion;
-$personal_id = $body->personal_id;
+  $descripcion_asignacion = $body->descripcion_asignacion;
+  $personal_id = $body->personal_id;
 
-$sql = "UPDATE orden SET descripcion_asignacion = :descripcion_asignacion, personal_id = :personal_id WHERE orden_id = :id";
+  $sql = "UPDATE orden SET descripcion_asignacion = :descripcion_asignacion, personal_id = :personal_id WHERE orden_id = :id";
 
-$sentenciaSQL = $conexion->prepare($sql);
-$sentenciaSQL->bindParam(":descripcion_asignacion", $descripcion_asignacion);
-$sentenciaSQL->bindParam(":personal_id", $personal_id);
-$sentenciaSQL->bindParam(":id", $id);
-$sentenciaSQL->execute();
+  $sentenciaSQL = $conexion->prepare($sql);
+  $sentenciaSQL->bindParam(":descripcion_asignacion", $descripcion_asignacion);
+  $sentenciaSQL->bindParam(":personal_id", $personal_id);
+  $sentenciaSQL->bindParam(":id", $id);
+  $sentenciaSQL->execute();
 
-header('Content-type: application/json');
-echo json_encode(array(
-  'updated' => true
-));
+  header('Content-type: application/json');
+  echo json_encode(array(
+    'updated' => true
+  ));
+} catch (Exception $ex) {
+  header('Content-type: application/json');
+  echo json_encode(array(
+    'error' => $ex->getMessage()
+  ));
+}
 ?>

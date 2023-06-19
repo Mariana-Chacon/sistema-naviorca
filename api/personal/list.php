@@ -6,10 +6,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
   return;
 }
 
-$sql = "SELECT * FROM personal";
-$personal = $conexion->query($sql);
-$personalResult = $personal->fetchAll(PDO::FETCH_ASSOC);
+try {
+  $sql = "SELECT * FROM personal";
+  $personal = $conexion->query($sql);
+  $personalResult = $personal->fetchAll(PDO::FETCH_ASSOC);
 
-header('Content-type: application/json');
-echo json_encode($personalResult);
+  header('Content-type: application/json');
+  echo json_encode($personalResult);
+} catch (Exception $ex) {
+  header('Content-type: application/json');
+  echo json_encode(array(
+    'error' => $ex->getMessage()
+  ));
+}
 ?>
