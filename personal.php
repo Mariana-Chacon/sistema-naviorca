@@ -35,9 +35,9 @@ include "./config/conexion.php"
                         <td><?php echo $personalData['cargo']; ?></td>
                         <td>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-target="#exampleModal">Editar</button>
+                            <button type="button" class="btn btn-primary edit-personal-modal" data-toggle="modal" data-id=<?= $personalData['personal_id'] ?> data-target="#exampleModal">Editar</button>
                             <br><br>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete" /></button>
+                            <button type="button" class="btn btn-danger delete-personal-modal" data-toggle="modal" data-id=<?= $personalData['personal_id'] ?> data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete" /></button>
                         </td>
                     <?php
                 }
@@ -76,12 +76,12 @@ include "./config/conexion.php"
                                     <div class="form-row">
                                         <div class="form-group">
                                             <label>Editar nombre:</label>
-                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre personal">
+                                            <input type="text" class="form-control" id="nombre" placeholder="Nombre personal">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label>Editar cargo:</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Cargo">
+                                        <input type="text" class="form-control" id="cargo" placeholder="Cargo">
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ include "./config/conexion.php"
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button id="update" type="submit" class="btn btn-primary">Guardar cambios</button>
                     </div>
                 </div>
             </div>
@@ -110,14 +110,11 @@ include "./config/conexion.php"
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
-                        <button type="button" class="btn btn-primary">Si</button>
+                        <button id="delete" type="button" class="btn btn-primary">Si</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
-</div>
-</body>
-
-</html>
+<script type="module" src="./assets/js/personal/handleEditData.js?v=<?php echo rand(); ?>"></script>

@@ -17,7 +17,6 @@ try {
   $sql = "SELECT * FROM personal WHERE personal_id = '$id'";
 
   $sentenciaSQL = $conexion->prepare($sql);
-  $sentenciaSQL->bindParam(":id", $id);
   $sentenciaSQL->execute();
 
   $personalResult = $sentenciaSQL->fetch(PDO::FETCH_ASSOC);

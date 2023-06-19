@@ -9,44 +9,38 @@ include "./config/conexion.php"
 <!--- CODIGO QUE DESENCADENAS LAS ACCIONES DEL FORMULARIO QUE PERMITIRAN GUARDAR INFORMACION EN LA BASE DE DATOS--->
 
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  $sql1 = "SELECT equipos.*, tipo_equipo.nombre from equipos
-            INNER JOIN tipo_equipo ON equipos.tipo_equipo_id = tipo_equipo.id";
-  $sql2 = "SELECT * from personal";
-  $sql3 = "SELECT * from tipo_mantenimiento";
+try {
+  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $sql1 = "SELECT equipos.*, tipo_equipo.nombre from equipos
+              INNER JOIN tipo_equipo ON equipos.tipo_equipo_id = tipo_equipo.id";
+    $sql2 = "SELECT * from personal";
+    $sql3 = "SELECT * from tipo_mantenimiento";
 
-  $equipos = $conexion->query($sql1);
-  $personal = $conexion->query($sql2);
-  $tipoMantenimiento = $conexion->query($sql3);
+    $equipos = $conexion->query($sql1);
+    $personal = $conexion->query($sql2);
+    $tipoMantenimiento = $conexion->query($sql3);
 
-  $equiposResult = $equipos->fetchAll(PDO::FETCH_ASSOC);
-  $personalResult = $personal->fetchAll(PDO::FETCH_ASSOC);
-  $tipoMantenimientoResult = $tipoMantenimiento->fetchAll(PDO::FETCH_ASSOC);
+    $equiposResult = $equipos->fetchAll(PDO::FETCH_ASSOC);
+    $personalResult = $personal->fetchAll(PDO::FETCH_ASSOC);
+    $tipoMantenimientoResult = $tipoMantenimiento->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $tipo_mantenimiento_id = (isset($_POST['selectMantenimiento'])) ? $_POST['selectMantenimiento'] : "";
+    $personal_id = (isset($_POST['txtPersonal'])) ? $_POST['txtPersonal'] : "";
+    $equipo_id = (isset($_POST['txtEquipo'])) ? $_POST['txtEquipo'] : "";
+    $fecha_inicio = (isset($_POST['dateDos'])) ? $_POST['dateDos'] : "";
+    $descripcion_asignacion = (isset($_POST['descripcion'])) ? $_POST['descripcion'] : "";
+
+    $sentenciaSQL = $conexion->prepare("INSERT INTO orden(tipo_mantenimiento_id, personal_id, equipo_id, descripcion_asignacion, fecha_emision, fecha_inicio) VALUES ('$tipo_mantenimiento_id', '$personal_id', '$equipo_id', '$descripcion_asignacion', NOW(), '$fecha_inicio');");
+    $sentenciaSQL->execute();
+
+    header("Location: ordenes.php");
+    exit;
+  }
+} catch (Exception $ex) {
+  echo $ex->getMessage();
 }
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $selectMantenimiento = (isset($_POST['selectMantenimiento'])) ? $_POST['selectMantenimiento'] : "";
-  $txtPersonal = (isset($_POST['txtPersonal'])) ? $_POST['txtPersonal'] : "";
-  $txtEquipo = (isset($_POST['txtEquipo'])) ? $_POST['txtEquipo'] : "";
-  $dateUno = (isset($_POST['dateUno'])) ? $_POST['dateUno'] : "";
-  $dateDos = (isset($_POST['dateDos'])) ? $_POST['dateDos'] : "";
-  $descripcion = (isset($_POST['descripcion'])) ? $_POST['descripcion'] : "";
-
-  $sentenciaSQL = $conexion->prepare("INSERT INTO orden(tipo_mantenimiento_id, personal_id, equipo_id, descripcion_asignacion, fecha_emision, fecha_inicio) VALUES (:tipo_mantenimiento_id, :personal_id, :equipo_id, :descripcion_asignacion, :fecha_emision, :fecha_inicio);");
-  if ($sentenciaSQL === false)
-    die("Error en la consulta: " . $conexion->error);
-  $sentenciaSQL->bindParam(":tipo_mantenimiento_id", $selectMantenimiento);
-  $sentenciaSQL->bindParam(":personal_id", $txtPersonal);
-  $sentenciaSQL->bindParam(":equipo_id", $txtEquipo);
-  $sentenciaSQL->bindParam(":descripcion_asignacion", $descripcion);
-  $sentenciaSQL->bindParam(":fecha_emision", $dateUno);
-  $sentenciaSQL->bindParam(":fecha_inicio", $dateDos);
-  $sentenciaSQL->execute();
-
-  header("Location: ordenes.php");
-  exit;
-}
-
 ?>
 <form method="post" enctype="multipart/form-data" class="text-center">
   <div class="col-md-5 mx-auto">
@@ -98,12 +92,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="dateUno">Fecha de emision</label>
-            <input class="date form-control" name="dateUno" id="dateUno" type="text" placeholder="d/M/y" title="format: dd/MM/y" />
-          </div>
-          <div class="form-group col-md-6">
             <label for="dateDos">Fecha de inicio</label>
-            <input class="date form-control" name="dateDos" id="dateDos" type="text" placeholder="d/M/y" title="format: dd/MM/y" />
+            <input class="date form-control" name="dateDos" id="dateDos" type="date" />
           </div>
         </div>
         <div class="form-group">
@@ -117,12 +107,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
 </form>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('.date').datepicker();
-  });
-</script>
-<script type="text/javascript" src="path/to/jquery.min.js"></script>
-<script type="text/javascript" src="path/to/bootstrap.min.js"></script>
-<script type="text/javascript" src="path/to/datepicker.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ab-datepicker@latest"></script>

@@ -32,9 +32,10 @@ include "./config/conexion.php"
   <tbody>
     <?php
     $sql = "SELECT orden.*, personal.nombre, equipos.modelo, tipo_equipo.nombre AS nombre_equipo from orden
-                           LEFT JOIN personal ON orden.personal_id = personal.personal_id
-                           INNER JOIN equipos ON orden.equipo_id = equipos.equipo_id
-                           INNER JOIN tipo_equipo ON equipos.tipo_equipo_id = tipo_equipo.id";
+            LEFT JOIN personal ON orden.personal_id = personal.personal_id
+            INNER JOIN equipos ON orden.equipo_id = equipos.equipo_id
+            INNER JOIN tipo_equipo ON equipos.tipo_equipo_id = tipo_equipo.id
+            ORDER BY orden.fecha_emision DESC";
     $ordenes = $conexion->query($sql);
 
     $ordenesResult = $ordenes->fetchAll(PDO::FETCH_ASSOC);
@@ -142,4 +143,4 @@ include "./config/conexion.php"
 <script type="text/javascript" src="path/to/bootstrap.min.js"></script>
 <script type="text/javascript" src="path/to/datepicker.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ab-datepicker@latest"></script>
-<script type="module" src="./assets/js/order/handleEditData.js?v=<?php echo rand(); ?>"></script>
+<script type="module" src="./assets/js/orden/handleEditData.js?v=<?php echo rand(); ?>"></script>
