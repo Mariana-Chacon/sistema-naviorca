@@ -12,9 +12,9 @@ try {
   $body = json_decode(file_get_contents('php://input'));
 
   $descripcion_asignacion = $body->descripcion_asignacion;
-  $personal_id = $body->personal_id !== 'NULL' ? $body->personal_id : NULL;
+  $personal_id = $body->personal_id;
 
-  $sql = "UPDATE orden SET descripcion_asignacion = '$descripcion_asignacion', personal_id = '$personal_id' WHERE orden_id = '$id'";
+  $sql = "UPDATE orden SET descripcion_asignacion = '$descripcion_asignacion', personal_id = $personal_id WHERE orden_id = '$id'";
 
   $sentenciaSQL = $conexion->prepare($sql);
   $sentenciaSQL->execute();

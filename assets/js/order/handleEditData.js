@@ -2,8 +2,10 @@ import { makeRequest } from "../lib.js";
 
 let id;
 
-const buttonModalElements = document.querySelectorAll('.edit-orden-modal');
-const buttonSubmit = document.querySelector('button[type="submit"]');
+const editOrdenButtons = document.querySelectorAll('.edit-orden-modal');
+const deleteOrdenButtons = document.querySelectorAll('.delete-orden-modal');
+const buttonSubmit = document.querySelector('button#update');
+const buttonDelete = document.querySelector('button#delete');
 
 const formElement = document.querySelector('div.modal.fade form');
 
@@ -22,11 +24,17 @@ const initFormData = async () => {
     personalElement.appendChild(optionElement);
   })
 
-  buttonModalElements.forEach(element => {
+  editOrdenButtons.forEach(element => {
     element.addEventListener('click', (event) => {
       id = element.getAttribute('data-id');
       
       completeOrdenData({ personal })
+    })
+  })
+
+  deleteOrdenButtons.forEach(element => {
+    element.addEventListener('click', (event) => {
+      id = element.getAttribute('data-id');
     })
   })
 }
@@ -59,6 +67,20 @@ buttonSubmit.addEventListener('click', (event) => {
       id
     },
     body
+  })
+    .then(data => {
+      location.reload()
+    });
+})
+
+buttonDelete.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  makeRequest('orden/delete.php', {
+    method: 'DELETE',
+    params: {
+      id
+    }
   })
     .then(data => {
       location.reload()
