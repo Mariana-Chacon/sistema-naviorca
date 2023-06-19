@@ -99,17 +99,17 @@ include "./config/conexion.php"
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+      Editar información de equipo
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" >
           <div class="card-formulario">
-            <div class="card-header">
-              Editar información de equipo
-            </div>
             <div class="card-body">
+              <br>
               <div class="form-group">
                 <label>Editar marca:</label>
                 <input type="text" class="form-control" placeholder="Marca">
@@ -125,15 +125,14 @@ include "./config/conexion.php"
                 </div>
               </div>
               <br>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="customFile">
-                <label class="custom-file-label">Cambiar imagen</label>
-              </div>
+              <div class="form-group">
+  <input type="file" class="form-control-file" id="archivo" style="color:white;">
+</div>
             </div>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer ">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
       </div>

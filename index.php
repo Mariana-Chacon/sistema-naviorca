@@ -5,15 +5,15 @@
             include "config/conexion.php";
         ?>
 
-    <div id="main-content" class="container allContent-section py-4">
+    <div id="main-content" class="container py-4">
         <div class="row">
             <div class="col-sm-3">
                 <div class="card">
-                    <i class="fa fa-users  mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total de usuarios</h4>
-                    <h5 style="color:white;">
+                <img width="96" height="96" src="https://img.icons8.com/color/96/000000/person-male.png" alt="person-male"/>
+                    <h4>PERSONAL</h4>
+                    <h5>
                     <!---?php
-                        $sql="SELECT * from users where isAdmin=0";
+                        $sql="SELECT * from personal where isAdmin=0";
                         $result=$conn-> query($sql);
                         $count=0;
                         if ($result-> num_rows > 0){
@@ -28,9 +28,9 @@
             </div>
             <div class="col-sm-3">
                 <div class="card">
-                    <i class="fa fa-th-large mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Mantenimiento por hacer</h4>
-                    <h5 style="color:white;">
+                <img width="96" height="96" src="https://img.icons8.com/color/96/screwdriver.png" alt="screwdriver"/>
+                    <h4>MANTENIMIENTO PREVENTIVO</h4>
+                    <h5>
                     <!---?php
                        
                        $sql="SELECT * from category";
@@ -49,10 +49,10 @@
             </div>
             <div class="col-sm-3">
             <div class="card">
-                    <i class="fa fa-th mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total de no se que</h4>
-                    <h5 style="color:white;">
-                    <<!---?php
+            <img width="96" height="96" src="https://img.icons8.com/color/96/gear.png" alt="gear"/>
+                    <h4>EQUIPOS</h4>
+                    <h5>
+                    <!---?php
                        
                        $sql="SELECT * from product";
                        $result=$conn-> query($sql);
@@ -70,9 +70,9 @@
             </div>
             <div class="col-sm-3">
                 <div class="card">
-                    <i class="fa fa-list mb-2" style="font-size: 70px;"></i>
-                    <h4 style="color:white;">Total de ordenes</h4>
-                    <h5 style="color:white;">
+                <img width="96" height="96" src="https://img.icons8.com/color/96/business-report.png" alt="business-report"/>
+                    <h4>INFORMES</h4>
+                    <h5>
                     <!---?php
                        
                        $sql="SELECT * from orders";
@@ -94,7 +94,7 @@
     </div>
        
             
-        <?php
+        <!---?php
             if (isset($_GET['category']) && $_GET['category'] == "success") {
                 echo '<script> alert("Category Successfully Added")</script>';
             }else if (isset($_GET['category']) && $_GET['category'] == "error") {

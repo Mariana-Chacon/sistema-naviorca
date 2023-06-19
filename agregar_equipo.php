@@ -46,9 +46,8 @@ include "./config/conexion.php"
   </div>
       </div>
     </div>
-    <div class="custom-file">
-  <input type="file" class="custom-file-input" id="customFileLang" lang="es">
-  <label class="custom-file-label" for="customFileLang">Seleccionar Archivo</label>
+    <div class="form-group">
+  <input type="file" class="form-control-file" id="archivo" style="color:white;">
 </div>
             </div>
           </div>
