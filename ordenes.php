@@ -6,8 +6,17 @@ include "./config/conexion.php"
 ?>
 
 <br>
-<h2>Ordenes guardadas</h2>
-<a href="formato_orden.php"><button type="button" class="btn-warning">Nueva orden</button></a>
+<h2>ORDENES GUARDADAS</h2>
+
+<div class="row">
+			<div class="col-sm-6 text-left">
+        <a href="fpdf/reporte_ordenes.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1"/>Exportar PDF</button></a>	
+			</div>
+			<div class="col-sm-6 text-right">
+      <a href="formato_orden.php"><button class="btn btn-warning mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1"/>Nueva orden de trabajo</button></a>	
+			</div>
+		</div>	
+    <br>
 <table>
   <thead>
     <tr>
@@ -42,10 +51,8 @@ include "./config/conexion.php"
         <td>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-id=<?= $ordenesData['orden_id'] ?> data-target="#exampleModal">Editar</button>
-
           <br><br>
-
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Borrar</button>
+          <button type="button" class="btn btn-danger" data-toggle="modal"  data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete"/></button>
         </td>
       <?php
     }
@@ -65,7 +72,7 @@ include "./config/conexion.php"
     </li>
   </ul>
 </nav>
-<!-- Modal -->
+<!-- Modal Editar-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -100,6 +107,27 @@ include "./config/conexion.php"
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---Modal Eliminar---->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Eliminar orden</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      ¿Estás seguro de que deseas eliminar esta orden?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+        <button type="button" class="btn btn-primary">Si</button>
       </div>
     </div>
   </div>

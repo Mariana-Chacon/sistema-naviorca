@@ -3,9 +3,12 @@ include "./cabeceraadmin.php";
 include "./sidebar.php";
 include "./config/conexion.php"
 ?>
+<h2>PERSONAL DE MANTENIMIENTO </h2>
+<div class="container">
+    <a href="#" class="btn btn-warning"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1" />Agregar</a>
+</div>
 <main class="table_personal">
     <section class="table__header">
-        <h1>personal del area de mantenimiento de cvg naviorca</h1>
     </section>
     <section class="table__body">
         <table>
@@ -14,6 +17,7 @@ include "./config/conexion.php"
                     <th> Id</th>
                     <th> Nombre</th>
                     <th> Cargo</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,12 +33,88 @@ include "./config/conexion.php"
                         <td><?php echo $personalData['personal_id']; ?></td>
                         <td><?php echo $personalData['nombre']; ?></td>
                         <td><?php echo $personalData['cargo']; ?></td>
-                    </tr>
-                <?php
+                        <td>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-target="#exampleModal">Editar</button>
+                            <br><br>
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete" /></button>
+                        </td>
+                    <?php
                 }
-                ?>
+                    ?>
             </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link">Anterior</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Siguiente</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Modal Editar-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="card-formulario">
+                                <div class="card-header">
+                                    Editar orden de trabajo
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Editar nombre:</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nombre personal">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Editar cargo:</label>
+                                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Cargo">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---Modal Eliminar---->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Eliminar personal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas eliminarlo de la lista de personal?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
+                        <button type="button" class="btn btn-primary">Si</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 </div>

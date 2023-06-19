@@ -48,11 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-<form method="post" enctype="multipart/form-data">
-  <div class="col-md-5">
-    <div class="card-formulario">
+<form method="post" enctype="multipart/form-data" class="text-center">
+  <div class="col-md-5 mx-auto">
+    <div class="card-formulario" style="height: 600px;";>
       <div class="card-header">
-        Crear nueva orden de trabajo
+        CREAR UNA NUEVA ORDEN DE TRABAJO
       </div>
       <div class="card-body">
         <div class="form-row">
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="btn-group" role="group" aria-label="">
           <button type="submit" class="btn btn-success">Agregar</button>
-          <a href="formato_orden.php"><button type="button" class="btn btn-info">Volver</button></a>
+          <a href="ordenes.php"><button type="button" class="btn btn-info">Volver</button></a>
         </div>
       </div>
     </div>

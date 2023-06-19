@@ -19,13 +19,6 @@
     </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
     
-
-<div class="user-cart">
-    <button type="button" class="btn btn-primary" style="background: #fff;">
-            Alertas <span class="badge badge-light">4</span>
-        </button>
-
-
         <?php           
         if(isset($_SESSION['user_id'])){
           ?>
