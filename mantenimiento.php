@@ -50,8 +50,8 @@ include "./config/conexion.php"
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-id=<?= $ordenesData['orden_id'] ?> data-target="#exampleModal">Editar</button>
           <br><br>
-          <button type="button" class="btn btn-danger" href="#">I</button>
-          <button type="button" class="btn btn-danger" href="#">F</button>
+          <button type="button" class="btn btn-link" href="#"><img width="30" height="30" src="https://img.icons8.com/color/30/edit-property.png" alt="edit-property"/></button>
+          <button type="button" class="btn btn-link edit-orden-modal" data-toggle="modal" data-id=<?= $ordenesData['orden_id'] ?> data-target="#examplModal"href="#"><img width="30" height="30" src="https://img.icons8.com/color/30/checkmark--v1.png" alt="checkmark--v1"/></button>
           <br><br>
          </td>
       <?php
@@ -99,6 +99,38 @@ include "./config/conexion.php"
               <div class="form-group">
                 <label for="descripcion">Descripcion de la asignacion</label>
                 <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button id="update" type="submit" class="btn btn-primary">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-----Modal finalizar------>
+<div class="modal fade" id="examplModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="post" enctype="multipart/form-data">
+          <div class="card-formulario">
+            <div class="card-header">
+              Finalizar orden
+            </div>
+            </br>
+              <div class="form-group">
+                <label for="descripcion">Descripcion de la asignacion</label>
+              </br></br>
+                <textarea class="form-control" name="descripcion" id="descripcion" rows="6"></textarea>
               </div>
             </div>
           </div>

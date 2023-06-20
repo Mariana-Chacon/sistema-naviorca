@@ -22,13 +22,13 @@
         <?php           
         if(isset($_SESSION['user_id'])){
           ?>
-          <a href="" style="text-decoration:none;">
+          <a href="cerrar.php" style="text-decoration:none;">
             <img width="30" height="30" src="https://img.icons8.com/fluency/30/emergency-exit.png" alt="emergency-exit"/>
          </a>
           <?php
         } else {
             ?>
-            <a href="" style="text-decoration:none;">
+            <a href="cerrar.php" style="text-decoration:none;">
             <img width="40" height="40" src="https://img.icons8.com/fluency/40/emergency-exit.png" alt="emergency-exit"/>
             </a>
 

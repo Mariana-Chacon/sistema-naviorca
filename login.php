@@ -18,7 +18,7 @@ if($_POST){
    
         <div class="wrapper">
 	<div class="container">
-    <img src="assets/images/naviorca.png" alt="">
+    <img src="assets/imagenes/naviorca.png" alt="">
 		<h1>Bienvenido</h1>
 		<form method="POST">
         <input type="text" name="usuario"placeholder="Ingrese Usuario">

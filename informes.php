@@ -3,6 +3,8 @@ include "./cabeceraadmin.php";
 include "./sidebar.php";
 include "./config/conexion.php"
 ?> 
+
+
 <div class="container">
     <a href="#" class="btn btn-warning"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1" />Agregar</a>
 </div>
