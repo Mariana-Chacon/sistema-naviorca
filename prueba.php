@@ -14,7 +14,28 @@
   <h1>My First Bootstrap Page</h1>
   <p>This is some text.</p>
 </div>
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>h</th>
+            <th></th>
+            <th>erer</th>
+        </tr>
+    </thead>
+    <tbody>
+     
+        <tr>
+            <td scope="row">fefefe</td>
+            <td>fefee</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td scope="row">efefef</td>
+            <td>efef</td>
+            <td>efefefe</td>
+        </tr>
+    </tbody>
+</table>
 <!---<div class="col-md-7">
     <a href="formato_orden.php"><button type="button" class="btn btn-warning">Nueva orden</button></a>
     <br> <br>
@@ -30,6 +51,6 @@
                 <th>Acciones</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody---->
 </body>
 </html>

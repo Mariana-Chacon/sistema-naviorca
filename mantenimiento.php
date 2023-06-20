@@ -48,11 +48,11 @@ include "./config/conexion.php"
         <td><?php echo $ordenesData['descripcion_asignacion']; ?></td>
         <td>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-id=<?= $ordenesData['orden_id'] ?> data-target="#exampleModal">E</button>
+          <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-id=<?= $ordenesData['orden_id'] ?> data-target="#exampleModal">Editar</button>
           <br><br>
-          <button type="button" class="btn btn-danger">I</button>
+          <button type="button" class="btn btn-danger" href="#">I</button>
+          <button type="button" class="btn btn-danger" href="#">F</button>
           <br><br>
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete" /></button>
          </td>
       <?php
     }
