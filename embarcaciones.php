@@ -14,8 +14,8 @@ include "./config/conexion.php"
   foreach ($embarcacionesResult as $embarcacionesData) {
   ?>
     <div class="card-items">
-    <img class="img-embarcacion" height='100px' src='<?=$row["product_image"]?>'>
-      
+      <img class="img-embarcacion" height='100px' src='<?= $row["product_image"] ?>'>
+
       <div class="content">
 
         <h2 class="card-title"><?php echo $embarcacionesData['nombre']; ?></h2>
@@ -26,7 +26,7 @@ include "./config/conexion.php"
         <button onclick="window.open('assets/fichas/ficha aramaya.pdf', '_blank')">Ver ficha comercial </button>
       </div>
     </div>
-    
+
   <?php
   }
   ?>
@@ -74,9 +74,9 @@ include "./config/conexion.php"
         <td><?php echo $equiposData['serial']; ?></td>
         <td>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary edit-orden-modal" data-toggle="modal" data-target="#exampleModal">Editar</button>
+          <button type="button" class="btn btn-primary edit-equipo-modal" data-toggle="modal" data-id=<?= $equiposData['equipo_id'] ?> data-target="#exampleModal">Editar</button>
           <br><br>
-          <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete" /></button>
+          <button type="button" class="btn btn-danger delete-equipo-modal" data-toggle="modal" data-id=<?= $equiposData['equipo_id'] ?> data-target="#staticBackdrop"><img width="30" height="30" src="https://img.icons8.com/color/30/delete.png" alt="delete" /></button>
         <?php
       }
         ?>
@@ -100,41 +100,41 @@ include "./config/conexion.php"
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-      Editar información de equipo
+        Editar información de equipo
 
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form method="post" enctype="multipart/form-data" >
+        <form method="post" enctype="multipart/form-data">
           <div class="card-formulario">
             <div class="card-body">
               <div class="form-group">
                 <label>Editar marca:</label>
-                <input type="text" class="form-control" placeholder="Marca">
+                <input id="marca" name="marca" type="text" class="form-control" placeholder="Marca">
               </div>
               <div class="form-row">
                 <div class="col">
                   <label>Editar modelo:</label>
-                  <input type="text" class="form-control" placeholder="Modelo">
+                  <input id="modelo" name="modelo" type="text" class="form-control" placeholder="Modelo">
                 </div>
                 <div class="col">
                   <label>Editar serial:</label>
-                  <input type="text" class="form-control" placeholder="Serial">
+                  <input id="serial" name="serial" type="number" class="form-control" placeholder="Serial">
                 </div>
               </div>
               <br>
               <div class="form-group">
-  <input type="file" class="form-control-file" id="archivo" style="color:white;">
-</div>
+                <input type="file" class="form-control-file" id="archivo" style="color:white;">
+              </div>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer ">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <button id="update" type="submit" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>
@@ -154,8 +154,9 @@ include "./config/conexion.php"
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Atrás</button>
-        <button type="button" class="btn btn-primary">Si</button>
+        <button id="delete" type="button" class="btn btn-primary">Si</button>
       </div>
     </div>
   </div>
 </div>
+<script type="module" src="./assets/js/equipo/handleEditData.js?v=<?php echo rand(); ?>"></script>
