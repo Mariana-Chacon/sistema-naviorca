@@ -3,9 +3,7 @@ import { makeRequest } from "../lib.js";
 let id;
 
 const editOrdenButtons = document.querySelectorAll('.edit-orden-modal');
-const deleteOrdenButtons = document.querySelectorAll('.delete-orden-modal');
 const buttonSubmit = document.querySelector('button#update');
-const buttonDelete = document.querySelector('button#delete');
 const iniciarButtons = document.querySelectorAll('button.iniciar');
 const finalizarButtons = document.querySelectorAll('.finalizar-orden-modal');
 const buttonFinalizar = document.querySelector('button#finalizar');
@@ -33,12 +31,6 @@ const initFormData = async () => {
       id = element.getAttribute('data-id');
       
       completeOrdenData({ personal })
-    })
-  })
-
-  deleteOrdenButtons.forEach(element => {
-    element.addEventListener('click', (event) => {
-      id = element.getAttribute('data-id');
     })
   })
 
@@ -93,20 +85,6 @@ buttonSubmit.addEventListener('click', (event) => {
       id
     },
     body
-  })
-    .then(data => {
-      location.reload()
-    });
-})
-
-buttonDelete.addEventListener('click', (event) => {
-  event.preventDefault();
-
-  makeRequest('orden/delete.php', {
-    method: 'DELETE',
-    params: {
-      id
-    }
   })
     .then(data => {
       location.reload()
