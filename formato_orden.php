@@ -42,6 +42,7 @@ try {
   echo $ex->getMessage();
 }
 ?>
+<br>
 <form method="post" enctype="multipart/form-data" class="text-center">
   <div class="col-md-5 mx-auto">
     <div class="card-formulario" style="height: 600px;";>

@@ -2,7 +2,7 @@
 <!-- Sidebar -->
 <div class="sidebar" id="mySidebar">
 <div class="side-header">
-    <img src="./assets/images/logo.png" width="120" height="120" alt="Logo"> 
+    <img src="./assets/imagenes/logo.png" width="120" height="120" alt="Logo"> 
     <h5 style="margin-top:10px;">Hola, Admin</h5>
 </div>
 

@@ -14,8 +14,8 @@ include "./config/conexion.php"
   foreach ($embarcacionesResult as $embarcacionesData) {
   ?>
     <div class="card-items">
-      <img src="assets/images/aramaya.jpeg" alt="grand canyon" class="img-embarcacion">
-
+    <img class="img-embarcacion" height='100px' src='<?=$row["product_image"]?>'>
+      
       <div class="content">
 
         <h2 class="card-title"><?php echo $embarcacionesData['nombre']; ?></h2>
@@ -26,6 +26,7 @@ include "./config/conexion.php"
         <button onclick="window.open('assets/fichas/ficha aramaya.pdf', '_blank')">Ver ficha comercial </button>
       </div>
     </div>
+    
   <?php
   }
   ?>
@@ -109,7 +110,6 @@ include "./config/conexion.php"
         <form method="post" enctype="multipart/form-data" >
           <div class="card-formulario">
             <div class="card-body">
-              <br>
               <div class="form-group">
                 <label>Editar marca:</label>
                 <input type="text" class="form-control" placeholder="Marca">

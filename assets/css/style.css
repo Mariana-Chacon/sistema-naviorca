@@ -17,7 +17,7 @@
     font-size: 18px;
 }
 
-body {
+body{
   font-family: 'Montserrat', sans-serif;
   font-size: 18px;
 }
@@ -25,7 +25,7 @@ body {
 h2{
  text-align: center;
  font-weight: 700; 
- margin-bottom: 50px;
+margin-top: 70px;
 }
 h4{
   font-size: 18px;
@@ -173,6 +173,7 @@ margin-top: 80px;
     
 /* Estiliza el contenido de la página - Sirve para empujar el contenido de la página a la derecha cuando se abre la navegación lateral */
 #main {
+  position:fixed;
   transition: margin-left .5s; /* Efecto transicion*/
   padding: 20px;
 }
@@ -256,6 +257,7 @@ margin-top: 0;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 3px;
+  margin-top: 40px;
  }
 label{
   color: var(--blanco);
@@ -268,8 +270,11 @@ label{
  }
 
  .row{
-  margin-left: 60px;
-  margin-right: 60px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 80px;
+  margin-right: 80px;
+   
  }
  
  .form-control-file{

@@ -15,7 +15,7 @@
  <nav  class="navbar navbar-expand-lg navbar-light px-5" style="background-color: #004359;">
     
     <a class="navbar-brand ml-5" href="./index.php">
-        <img src="./assets/images/naviorca.png" width="80" height="80" alt=" ">
+        <img src="./assets/imagenes/naviorca.png" width="80" height="80" alt=" ">
     </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
     
