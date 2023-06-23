@@ -25,7 +25,6 @@ include "./config/conexion.php"
       <th>Equipo</th>
       <th>Fecha de emision</th>
       <th>Fecha de inicio</th>
-      <th>Fecha de finalziacion</th>
       <th>Descripcion de la asignacion</th>
       <th>Acciones</th>
     </tr>
@@ -65,7 +64,6 @@ include "./config/conexion.php"
         <td><?php echo $ordenesData['nombre_equipo'] . " - " . $ordenesData["modelo"]; ?></td>
         <td><?php echo $ordenesData['fecha_emision']; ?></td>
         <td><?php echo $ordenesData['fecha_inicio']; ?></td>
-        <td><?php echo $ordenesData['fecha_finalizacion']; ?></td>
         <td><?php echo $ordenesData['descripcion_asignacion']; ?></td>
         <td>
           <!-- Button trigger modal -->
@@ -188,6 +186,5 @@ include "./config/conexion.php"
 </script>
 <script type="text/javascript" src="path/to/jquery.min.js"></script>
 <script type="text/javascript" src="path/to/bootstrap.min.js"></script>
-<script type="text/javascript" src="path/to/datepicker.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/ab-datepicker@latest"></script>
+ 
 <script type="module" src="./assets/js/orden/handleEditData.js?v=<?php echo rand(); ?>"></script>

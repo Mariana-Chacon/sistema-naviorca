@@ -5,13 +5,13 @@ include "./config/conexion.php"
 ?>    
 <br>
 <h2>MANTENIMIENTO PREVENTIVO</h2>
-
+<br><br><br>
 <div class="row">
 			<div class="col-sm-6 text-left">
         <a href="fpdf/reporte_ordenes.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1"/>Exportar PDF</button></a>	
 			</div>
 			<div class="col-sm-6 text-right">
-      <a href="formato_orden.php"><button class="btn btn-warning mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1"/>Nueva orden de trabajo</button></a>	
+      <a href="agregar_mantenimiento.php"><button class="btn btn-warning mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1"/>Agregar mantenimiento preventivo</button></a>	
 			</div>
 		</div>	
     <br>

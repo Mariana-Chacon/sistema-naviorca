@@ -14,8 +14,7 @@ include "./config/conexion.php"
   foreach ($embarcacionesResult as $embarcacionesData) {
   ?>
     <div class="card-items">
-    <img class="img-embarcacion" height='100px' src='<?=$row["imagen"]?>'>
-      
+    <img class="img-embarcacion" src="<?php echo $embarcacionesData['imagen']; ?>" alt="Imagen de la tarjeta" height='100px'>      
       <div class="content">
 
         <h2 class="card-title"><?php echo $embarcacionesData['nombre']; ?></h2>
@@ -23,7 +22,8 @@ include "./config/conexion.php"
         <p>- Matricula: <?php echo $embarcacionesData['matricula_id']; ?></p>
         <p>- Tipo: <?php echo $embarcacionesData['tipo']; ?></p>
         <p>- Fecha de construccion: <?php echo $embarcacionesData['fecha_construccion']; ?></p>
-        <button onclick="window.open('assets/fichas/ficha aramaya.pdf', '_blank')">Ver ficha comercial </button>
+        <a href="<?php echo $embarcacionesData['ficha_comercial']; ?>"><button>Ver ficha comercial </button></a>
+       
       </div>
     </div>
 

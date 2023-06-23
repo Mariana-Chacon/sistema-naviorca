@@ -1,3 +1,5 @@
+/***ESTE ARCHIVO MANEJA LA FUNCIONALIDAD DEL MODULO DE PERSONAL: EDITAR Y ELIMINAR */
+
 import { makeRequest } from "../lib.js";
 
 let id;
@@ -9,6 +11,7 @@ const buttonDelete = document.querySelector('button#delete');
 
 const formElement = document.querySelector('div.modal.fade form');
 
+const personalElement = formElement.querySelector(`#personal_id`);
 const nombreElement = formElement.querySelector(`#nombre`);
 const cargoElement = formElement.querySelector(`#cargo`);
 

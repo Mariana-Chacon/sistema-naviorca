@@ -1,3 +1,5 @@
+/*****FUNCION QUE PERMITE HACER CONSULTAS POR API, MEDIANTE JAVASCRIPT******/
+
 export const makeRequest = async (url, { body, params = {}, ...restParams} = {}) => {
   const queryString = Object.keys(params).map((key) => {
     return `${key}=${encodeURIComponent(params[key])}`;
@@ -15,3 +17,4 @@ export const makeRequest = async (url, { body, params = {}, ...restParams} = {})
   return requestData;
 };
 
+/****SIRVE PARA HACER CONSULTAS A LA BASE DE DATOS POR API MEDIANTE JAVASCRIPT */
