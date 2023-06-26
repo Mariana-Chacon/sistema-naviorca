@@ -37,7 +37,7 @@ include "./config/conexion.php"
   <br> <br> <br>
   <div class="row">
     <div class="col-sm-6 text-left">
-      <a href="fpdf/reporte_ordenes.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1" />Exportar PDF</button></a>
+      <a href="reporte_equipo.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1" />Exportar PDF</button></a>
     </div>
     <div class="col-sm-6 text-right">
       <a href="agregar_equipo.php"><button class="btn btn-warning mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1" />Añadir equipo</button></a>
@@ -52,7 +52,6 @@ include "./config/conexion.php"
       <th> Marca</th>
       <th> Modelo</th>
       <th> Serial</th>
-      <th> Imagen</th>
       <th>Acciones</th>
     </tr>
   </thead>
@@ -70,7 +69,6 @@ include "./config/conexion.php"
         <td><?php echo $equiposData['tipo_equipo_id']; ?></td>
         <td><?php echo $equiposData['marca']; ?></td>
         <td><?php echo $equiposData['modelo']; ?></td>
-        <td><?php echo $equiposData['serial']; ?></td>
         <td><?php echo $equiposData['serial']; ?></td>
         <td>
           <!-- Button trigger modal -->
