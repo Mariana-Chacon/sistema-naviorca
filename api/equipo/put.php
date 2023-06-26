@@ -15,7 +15,7 @@ try {
   $modelo = $body->modelo;
   $serial = $body->serial;
 
-  $sql = "UPDATE equipos SET marca = '$marca', modelo = '$modelo', serial = $serial WHERE equipo_id = '$id'";
+  $sql = "UPDATE equipos SET marca = '$marca', modelo = '$modelo', serial = '$serial' WHERE equipo_id = '$id'";
 
   $sentenciaSQL = $conexion->prepare($sql);
   $sentenciaSQL->execute();

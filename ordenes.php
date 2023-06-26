@@ -57,6 +57,9 @@ include "./config/conexion.php"
     $ordenesResult = $ordenes->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($ordenesResult as $ordenesData) {
+      if(intval($ordenesData['tipo_mantenimiento_id']) == 2 && $ordenesData['fecha_finalizacion'] != NULL) {
+        continue;
+      }
     ?>
       <tr>
         <td><?php echo $ordenesData['orden_id']; ?></td>
@@ -81,19 +84,6 @@ include "./config/conexion.php"
       ?>
   </tbody>
 </table>
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Siguiente</a>
-    </li>
-  </ul>
-</nav>
 <!-- Modal Editar-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

@@ -128,7 +128,7 @@ buttonFinalizar.addEventListener('click', (event) => {
     body
   })
     .then(data => {
-      location.reload()
+      //location.reload()
     });
 })
 

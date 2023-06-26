@@ -27,15 +27,14 @@ try {
   $sentenciaSQL = $conexion->prepare($sql);
   $sentenciaSQL->execute();
 
-  $sql = "INSERT INTO informenes(orden_id, nombre_personal, fecha_finalizacion, tipo_equipo, marca_equipo, modelo_equipo, serial_equipo, descripcion_asignacion, informacion_informe) VALUES ($id, '$data[nombre_personal]', NOW(), '$data[tipo_equipo]', '$data[marca]', '$data[modelo]', $data[serial], '$data[descripcion_asignacion]', '$informacion_informe')";
+  $sql = "INSERT INTO informes(orden_id, nombre_personal, fecha_finalizacion, tipo_equipo, marca_equipo, modelo_equipo, serial_equipo, descripcion_asignacion, informacion_informe) VALUES ($id, '$data[nombre_personal]', NOW(), '$data[tipo_equipo]', '$data[marca]', '$data[modelo]', '$data[serial]', '$data[descripcion_asignacion]', '$informacion_informe')";
   $sentenciaSQL = $conexion->prepare($sql);
   $sentenciaSQL->execute();
 
   header('Content-type: application/json');
   echo json_encode(array(
     'updated' => true,
-    'data' => $data,
-    'sql' => "INSERT INTO informenes(nombre_personal, fecha_finalizacion, tipo_equipo, marca_equipo, modelo_equipo, serial_equipo, descripcion_asignacion, informacion_informe) VALUES ('$data[nombre_personal]', NOW(), '$data[tipo_equipo]', '$data[marca]', '$data[modelo]', $data[serial], '$data[descripcion_asignacion]', '$informacion_informe')"
+    'data' => $data
   ));
 } catch (Exception $ex) {
   header('Content-type: application/json');

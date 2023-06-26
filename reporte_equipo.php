@@ -1,66 +1,60 @@
-<?php
-ob_start();
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Reporte equipos</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css?v=<?php echo time(); ?>"></link>
-</head>
-<?php
-include "./config/conexion.php";
-?>
-<img src="assets/imagenes/NAVIORCA_NUEVO_HORIZONTAL.png" alt="" style="width: 300px;">
-
-<div class="container">
-  <h2>EQUIPOS <br> <small>(motogeneradores y maquina principal)</small></h2>
-  <br> 
-</div>
-<table>
-  <thead>
-    <tr>
-      <th> Id</th>
-      <th> Tipo de equipo</th>
-      <th> Marca</th>
-      <th> Modelo</th>
-      <th> Serial</th>
-     </tr>
-  </thead>
-  <tbody>
-    <?php
-    $sql = "SELECT * from equipos";
-    $equipos = $conexion->query($sql);
-
-    $equiposResult = $equipos->fetchAll(PDO::FETCH_ASSOC);
-
-    foreach ($equiposResult as $equiposData) 
-    ?>
-   
-      <tr>
-        <td><?php echo $equiposData['equipo_id']; ?></td>
-        <td><?php echo $equiposData['tipo_equipo_id']; ?></td>
-        <td><?php echo $equiposData['marca']; ?></td>
-        <td><?php echo $equiposData['modelo']; ?></td>
-        <td><?php echo $equiposData['serial']; ?></td>
-      </tr>
-  </tbody>
-  </table>
-
   <?php
-  include_once "./vendor/autoload.php";
-  use Dompdf\Dompdf;
-  $dompdf = new Dompdf();
-  ob_start();
-  include "./tabla.php";
-  $html = ob_get_clean();
-  $dompdf->loadHtml($html);
-  $dompdf->render();
-  header("Content-type: application/pdf");
-  header("Content-Disposition: inline; filename=documento.pdf");
-  echo $dompdf->output();
-?>
+  require('fpdf/fpdf.php');
+
+  class PDF extends FPDF
+  {
+    // Cabecera de página
+    function Header()
+    {
+      // Logo
+      $this->Image('assets\imagenes\NAVIORCA_NUEVO_HORIZONTAL.png', 10, 8, 70);
+      // Arial bold 15
+      $this->SetFont('Arial', 'B', 12);
+      // Movernos a la derecha
+      $this->Ln(35);
+
+      $this->Cell(60);
+      // Título
+      $this->Cell(70, 10, 'Informe de equipos', 0, 0, 'C');
+      // Salto de línea
+      $this->Ln(20);
+
+      $this->Cell(15, 10, 'ID', 1, 0, 'C', 0);
+      $this->Cell(38, 10, 'Tipo de equipo', 1, 0, 'C', 0);
+      $this->Cell(40, 10, 'Marca', 1, 0, 'C', 0);
+      $this->Cell(27, 10, 'Modelo', 1, 0, 'C', 0);
+      $this->Cell(25, 10, 'Serial', 1, 1, 'C', 0);
+    }
+
+    // Pie de página
+    function Footer()
+    {
+      // Posición: a 1,5 cm del final
+      $this->SetY(-15);
+      // Arial italic 8
+      $this->SetFont('Arial', 'I', 8);
+      // Número de página
+      $this->Cell(0, 10, utf8_decode('Pagina ') . $this->PageNo() . '/{nb}', 0, 0, 'C');
+    }
+  }
+
+  require 'config/conexion.php';
+  $consulta = "SELECT equipos.*, tipo_equipo.nombre from equipos
+               INNER JOIN tipo_equipo ON equipos.tipo_equipo_id = tipo_equipo.id";
+  $resultado = $conexion->query($consulta);
+
+
+  $pdf = new PDF();
+  $pdf->AliasNbPages();
+  $pdf->AddPage();
+  $pdf->SetFont('Arial', '', 12);
+
+  while ($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
+    $pdf->Cell(15, 10, $row['equipo_id'], 1, 0, 'C', 0);
+    $pdf->Cell(38, 10, $row['nombre'], 1, 0, 'C', 0);
+    $pdf->Cell(40, 10, $row['marca'], 1, 0, 'C', 0);
+    $pdf->Cell(27, 10, $row['modelo'], 1, 0, 'C', 0);
+    $pdf->Cell(25, 10, $row['serial'], 1, 1, 'C', 0);
+  }
+  $pdf->Output();
+  ?>

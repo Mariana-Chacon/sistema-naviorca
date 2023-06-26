@@ -22,7 +22,7 @@ include "./config/conexion.php"
         <p>- Matricula: <?php echo $embarcacionesData['matricula_id']; ?></p>
         <p>- Tipo: <?php echo $embarcacionesData['tipo']; ?></p>
         <p>- Fecha de construccion: <?php echo $embarcacionesData['fecha_construccion']; ?></p>
-        <a href="<?php echo $embarcacionesData['ficha_comercial']; ?>"><button>Ver ficha comercial </button></a>
+        <a href="<?php echo $embarcacionesData['ficha_comercial']; ?>" target="_blank"><button>Ver ficha comercial </button></a>
        
       </div>
     </div>
@@ -80,26 +80,12 @@ include "./config/conexion.php"
         ?>
   </tbody>
 </table>
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Siguiente</a>
-    </li>
-  </ul>
-</nav>
 <!-- Modal Editar-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         Editar información de equipo
-
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -119,7 +105,7 @@ include "./config/conexion.php"
                 </div>
                 <div class="col">
                   <label>Editar serial:</label>
-                  <input id="serial" name="serial" type="number" class="form-control" placeholder="Serial">
+                  <input id="serial" name="serial" type="text" class="form-control" placeholder="Serial">
                 </div>
               </div>
               <br>
@@ -158,3 +144,4 @@ include "./config/conexion.php"
   </div>
 </div>
 <script type="module" src="./assets/js/equipo/handleEditData.js?v=<?php echo rand(); ?>"></script>
+<?php

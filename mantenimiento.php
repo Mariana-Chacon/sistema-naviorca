@@ -8,7 +8,7 @@ include "./config/conexion.php"
 <br><br><br>
 <div class="row">
 			<div class="col-sm-6 text-left">
-        <a href="fpdf/reporte_ordenes.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1"/>Exportar PDF</button></a>	
+        <a href="reporte_mantenimiento.php" target="_blank"><button class="btn btn-primary mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/pdf-2--v1.png" alt="pdf-2--v1"/>Exportar PDF</button></a>	
 			</div>
 			<div class="col-sm-6 text-right">
       <a href="agregar_mantenimiento.php"><button class="btn btn-warning mr-auto"><img width="30" height="30" src="https://img.icons8.com/color/30/add--v1.png" alt="add--v1"/>Agregar mantenimiento preventivo</button></a>	
@@ -91,19 +91,6 @@ include "./config/conexion.php"
       ?>
   </tbody>
 </table>
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Anterior</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Siguiente</a>
-    </li>
-  </ul>
-</nav>
 <!-- Modal Editar-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -148,12 +135,14 @@ include "./config/conexion.php"
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+      Finalizar mantenimiento:
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
+        <div class="card-formulario">
           <label for="descripcion">Descripcion del informe</label>
           </br></br>
           <textarea class="form-control" name="descripcion-informe" id="descripcion-informe" rows="6"></textarea>

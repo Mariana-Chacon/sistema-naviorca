@@ -18,7 +18,7 @@ try {
     $modelo = (isset($_POST['modelo'])) ? $_POST['modelo'] : "";
     $serial = (isset($_POST['serial'])) ? $_POST['serial'] : "";
 
-    $sentenciaSQL = $conexion->prepare("INSERT INTO equipos(equipo_id, tipo_equipo_id, marca, modelo, serial) VALUES ($equipo_id, $tipo_equipo_id, '$marca', '$modelo', $serial)");
+    $sentenciaSQL = $conexion->prepare("INSERT INTO equipos(equipo_id, tipo_equipo_id, marca, modelo, serial) VALUES ($equipo_id, $tipo_equipo_id, '$marca', '$modelo', '$serial')");
     $sentenciaSQL->execute();
 
     header("Location: embarcaciones.php");
@@ -67,7 +67,7 @@ try {
             </div>
             <div class="form-group col-md-2">
               <label>Serial</label>
-              <input type="number" class="form-control" id="serial" name="serial">
+              <input type="text" class="form-control" id="serial" name="serial">
             </div>
           </div>
         </div>

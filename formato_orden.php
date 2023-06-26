@@ -30,8 +30,13 @@ try {
     $equipo_id = (isset($_POST['txtEquipo'])) ? $_POST['txtEquipo'] : "";
     $fecha_inicio = (isset($_POST['dateDos'])) ? $_POST['dateDos'] : "";
     $descripcion_asignacion = (isset($_POST['descripcion'])) ? $_POST['descripcion'] : "";
+    $intervalo = (isset($_POST['intervalo'])) ? $_POST['intervalo'] : NULL;
 
-    $sentenciaSQL = $conexion->prepare("INSERT INTO orden(tipo_mantenimiento_id, personal_id, equipo_id, descripcion_asignacion, fecha_emision, fecha_inicio) VALUES ('$tipo_mantenimiento_id', '$personal_id', '$equipo_id', '$descripcion_asignacion', NOW(), '$fecha_inicio');");
+    if($intervalo == "" || intval($tipo_mantenimiento_id) != 1) {
+      $intervalo = 'NULL';
+    }
+
+    $sentenciaSQL = $conexion->prepare("INSERT INTO orden(tipo_mantenimiento_id, personal_id, equipo_id, descripcion_asignacion, fecha_emision, fecha_inicio, intervalo_dias) VALUES ('$tipo_mantenimiento_id', '$personal_id', '$equipo_id', '$descripcion_asignacion', NOW(), '$fecha_inicio', $intervalo);");
     $sentenciaSQL->execute();
 
     header("Location: ordenes.php");
@@ -94,6 +99,10 @@ try {
           <div class="form-group col-md-6">
             <label for="dateDos">Fecha de inicio</label>
             <input class="date form-control" name="dateDos" id="dateDos" type="date" />
+          </div>
+          <div class="form-group col-md-6">
+            <label for="dateDos">Intervalo de dias</label>
+            <input class="date form-control" name="intervalo" id="intervalo" type="number" min="0" />
           </div>
         </div>
         <div class="form-group">

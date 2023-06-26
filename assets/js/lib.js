@@ -17,4 +17,4 @@ export const makeRequest = async (url, { body, params = {}, ...restParams} = {})
   return requestData;
 };
 
-/****SIRVE PARA HACER CONSULTAS A LA BASE DE DATOS POR API MEDIANTE JAVASCRIPT */
+/*SIRVE PARA HACER CONSULTAS A LA BASE DE DATOS POR API MEDIANTE JAVASCRIPT*/
